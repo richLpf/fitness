@@ -1,0 +1,27 @@
+<ion-view title="登录" hide-nav-bar="false">
+  <ion-header-bar>
+    <ion-nav-bar>
+      <ion-nav-back-button style="display:block" class="button-clear button-dark">
+        返回
+      </ion-nav-back-button>
+    </ion-nav-bar>
+  </ion-header-bar>
+
+  <ion-content ng-controller="loginCtrl">
+    <div class="list">
+      <label class="item item-input">
+        <input type="text" placeholder="手机号码" ng-model="phoneNumber" required ng-pattern="/^1[34578]\d{9}$/">
+      </label>
+      <label class="item item-input">
+        <input type="password" placeholder="密码" ng-model="loginPass" required>
+        <span class="input-label">忘记密码</span>
+      </label>
+      <button class="button button-block button-assertive" ng-click="login()">
+        登录
+      </button>
+    </div>
+  </ion-content>
+</ion-view>
+
+
+

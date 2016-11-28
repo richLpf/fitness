@@ -1,0 +1,119 @@
+<style>
+    ul li{
+      list-style:none;
+      background:#fff;
+     /* padding-right:18px !important;*/
+    }
+    .ion-chevron-left{
+      font-size:15px;
+      padding-top:8px;
+    }
+    .edit{
+      color:#fff;
+      padding-top:7px;
+      font-size:15px;
+    }
+  .remind{
+    padding:10px;
+    color:#ccc;
+  }
+  .carbody{
+    background-color:#e5e5e5;
+  }
+.mallMoney{
+  padding:0;
+}
+  .clearPadding{
+    padding-right:20px;
+  }
+  .bg{
+    background-color:#e5e5e5;
+    margin-top:5px;
+  }
+  p span{
+    display:inline-block;
+    width:10%;
+    font-size:20px;
+    text-align:center;
+  }
+  .num{
+    display: inline-block !important;
+    width: 10%;
+    height:10% !important;
+    text-align: center;
+  }
+</style>
+<ion-view class="carbody" hide-nav-bar="false">
+  <ion-header-bar align-title="center" class="bar-dark">
+    <div class="buttons">
+      <span class="ion-chevron-left"></span>
+    </div>
+    <h1 class="title">购物车</h1>
+    <div class="buttons">
+      <span class="edit">编辑</span>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+    <ul class="list">
+      <li>
+        商品信息
+      </li>
+      <li>
+        <div class="list">
+
+          <a class="item item-thumbnail-left  bg" href="#" ng-repeat="goods in mallArray">
+            <img ng-src="{{goods.goodsListImg}}">
+            <h2>{{goods.goodsName}}</h2>
+            <p>{{goods.price | currency:'￥'}}&nbsp;*<span style="font-size:18px;" ng-bind="this.nums"></span></p>
+            <p><span ng-click="adds()">+</span><input type="text" class="num" ng-model="this.nums"><span ng-click="reduce()">-</span></p>
+          </a>
+
+        </div>
+      </li>
+      <li class="item item-icon-right clearPadding">
+        商品价格
+
+        <span class="item-note">
+       <!--   <i class="item-icon-right mallMoney">￥</i>-->
+        {{total | currency:'￥'}}
+        </span>
+      </li>
+      <li class="item item-icon-right clearPadding">
+        运费
+        <span class="item-note">
+          免运费
+        </span>
+      </li>
+      <li>
+        <label class="item item-input">
+          <span class="input-label">给社长留言:</span>
+          <input type="text" placeholder="选填（您有什么叮嘱请留言）">
+        </label>
+      </li>
+    </ul>
+
+    <ul class="list">
+      <li>
+        <a class="item item-icon-right" href="#">
+        福丽券
+        <span class="item-note">
+          暂无可用福利券
+        </span>
+        <i class="icon ion-ios-arrow-forward"></i>
+      </a>
+      </li>
+      <li class="item item-toggle">
+        使用积分可抵扣5元
+        <label class="toggle toggle-balanced">
+          <input type="checkbox">
+          <div class="track">
+            <div class="handle"></div>
+          </div>
+        </label>
+      </li>
+      <li class="remind"><p><span class="ion-ios-information-outline"></span>福丽券和积分目前不能抵扣运费<br/>订单满200元，已为您免运费</p></li>
+    </ul>
+  </ion-content>
+</ion-view>
+

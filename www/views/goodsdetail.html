@@ -1,0 +1,22 @@
+<!--<style>
+  .bar .back-button.hide, .bar .buttons .hide {
+    display: block !important;
+  }
+</style>-->
+<ion-view title="商品详情" hide-nav-bar="false">
+  <ion-header-bar>
+    <ion-nav-bar>
+      <ion-nav-back-button style="display:block" class="button-clear button-dark">
+        返回
+      </ion-nav-back-button>
+    </ion-nav-bar>
+  </ion-header-bar>
+
+  <ion-content>
+    <img ng-src="{{detailImg.goodsListImg}}" alt="">
+    <p>
+      <span ng-click="clickShare()">分享</span>
+      <span ng-click="addToCar(detailImg)">加入购物车</span>
+    </p>
+  </ion-content>
+</ion-view>

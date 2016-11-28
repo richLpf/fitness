@@ -1,0 +1,51 @@
+<style>
+  .pad{
+    padding-left:0 !important;
+  }
+  ul li{
+    list-style:none;
+  }
+
+</style>
+<ion-view>
+<ion-side-menus ng-controller="classCtrl">
+  <!-- 中间内容 -->
+  <ion-side-menu-content>
+    <ion-header-bar>
+      <div class="bar bar-header item-input-inset">
+        <button class="button button-icon icon ion-navicon pad" ng-click="toggleLeft()"></button>
+        <label class="item-input-wrapper">
+          <i class="icon ion-ios-search placeholder-icon"></i>
+          <input type="search" placeholder="Search">
+        </label>
+      </div>
+    </ion-header-bar>
+
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="item in list"  class="item item-thumbnail-left" ng-click="detail(item)">
+          <img ng-src="{{item.goodsListImg}}" alt="">
+          <h2>{{item.className}}</h2>
+          <p>{{item.goodsName}}</p>
+        </ion-item>
+      </ion-list>
+      <ion-infinite-scroll
+        ng-hide="loadLast"
+        on-infinite="loadMore()"
+        distance="1%">
+      </ion-infinite-scroll>
+    </ion-content>
+
+  </ion-side-menu-content>
+
+  <!-- 左侧菜单 -->
+  <ion-side-menu side="left" width="200">
+    <ion-scroll   style="height:700px">
+        <ul class="list">
+          <li class="item" ng-repeat="leftlist in classlist" ng-click="menu(leftlist,$index)">{{leftlist.className}}</li>
+        </ul>
+    </ion-scroll>
+  </ion-side-menu>
+</ion-side-menus>
+</ion-view>
+

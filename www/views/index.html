@@ -1,0 +1,44 @@
+<ion-view>
+<ion-header-bar align-title="center" class="bar-dark">
+  <button class="button button-icon icon ion-navicon pad" ng-click="toggleLeft()"></button>
+  <h1 class="title">力健美</h1>
+</ion-header-bar>
+
+<!--  &lt;!&ndash; 左侧菜单 &ndash;&gt;
+  <ion-side-menu side="left" width="200">
+    <ion-scroll   style="height:700px">
+      <ul class="list">
+        <li class="item" ng-repeat="leftlist in classlist" ng-click="menu(leftlist,$index)">{{leftlist.className}}</li>
+      </ul>
+    </ion-scroll>
+  </ion-side-menu>-->
+
+    <ion-content>
+      <ion-slide-box class="index_slide" auto-play='true'>
+        <ion-slide ng-repeat="banner in banners">
+          <div class="box blue">
+            <img ng-src="{{banner.goodsBenUrl | bannerImg}}" alt="">
+          </div>
+        </ion-slide>
+      </ion-slide-box>
+
+      <ion-list class="textAlign1">
+        <ion-item ng-repeat="item in list" class="item item-thumbnail-left">
+          <img ng-src="{{item.goodsListImg}}" alt="">
+          <h2>{{item.className}}</h2>
+          <p>{{item.goodsName}}</p>
+          <p><button class="button button-positive button-small" ng-click="buy(item)">
+            购买
+          </button></p>
+        </ion-item>
+      </ion-list>
+
+      <ion-infinite-scroll  ng-if="!loadLast" on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+
+    </ion-content>
+</ion-view>
+<style>
+  img{
+    width:100%;
+  }
+</style>
